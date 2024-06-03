@@ -26,7 +26,6 @@ const Card = ({ data }) => {
   const [functionName, setfunctionName] = useState();
   const [fileName, setfileName] = useState();
   const [params, setparams] = useState();
-  const [responseobject, setresponseobject] = useState();
   console.log(params);
   useEffect(() => {
     setfunctionName(extractFunctionName(data.label.function));

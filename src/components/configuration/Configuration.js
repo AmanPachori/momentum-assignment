@@ -120,13 +120,13 @@ const Configuration = () => {
             <label className="block font-medium">Database Configurations</label>
             <div className="mt-7">
               <label className="block w-full">
-                <InputWrapper name={"Database User"} />
+                <InputWrapper type="text" name={"Database User"} />
               </label>
               <label className="block">
-                <InputWrapper name={"Database Password"} />
+                <InputWrapper type="password" name={"Database Password"} />
               </label>
               <label className="block">
-                <InputWrapper name={"Database Hostname"} />
+                <InputWrapper type="text" name={"Database Hostname"} />
               </label>
             </div>
           </li>
