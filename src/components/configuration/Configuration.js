@@ -3,6 +3,7 @@ import { MdInfo } from "react-icons/md";
 import arrowsidebar from "../../arrow-sidebar.png";
 import user from "../../user.png";
 import InputWrapper from "../atoms/InputWrapper";
+import dependency from "../dependency.json";
 
 const Configuration = () => {
   return (
@@ -26,7 +27,7 @@ const Configuration = () => {
             <label className="block font-medium text-[16px] mb-3">
               Selected flow
             </label>
-            <select className="w-full bg-[#363636] border-[#D9D9D9] border-2 rounded-lg mt-1 p-2 ">
+            <select className="w-full bg-[#363636] border-[#D9D9D9] border-2 rounded-lg mt-1 p-2 appearance-none custom-arrow ">
               <option className="font-medium text-[16px] text-white">
                 POST /carts/{"{cart_id}"}
               </option>
@@ -38,120 +39,35 @@ const Configuration = () => {
               Select the ones you want to mock
             </span>
             <div className="mt-2.5 pr-1">
-              <div class="flex justify-between items-center mb-4 pb-0.5">
-                <div className=" flex justify-center items-center">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    class="w-4 h-4 text-blue-600 bg-black border-gray-700 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    for="default-checkbox"
-                    class="ms-2 text-[15px] font-medium text- white"
+              <div>
+                {dependency?.map((item) => (
+                  <div
+                    key={item}
+                    className="flex justify-between items-center mb-4 pb-0.5"
                   >
-                    httpx
-                  </label>
-                </div>
-                <div className="image">
-                  <img
-                    src={arrowsidebar}
-                    alt="logo"
-                    className="w-[13px] h-[13px] mt-3"
-                  />
-                </div>
-              </div>
-              <div class="flex justify-between items-center mb-4 pb-0.5">
-                <div className=" flex justify-center items-center">
-                  <input
-                    id="checked"
-                    type="checkbox"
-                    value="checked"
-                    class="w-4 h-4 text-blue-600 bg-black border-gray-700 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    for="default-checkbox"
-                    class="ms-2 text-[15px] font-medium text- white"
-                  >
-                    product_client
-                  </label>
-                </div>
-                <div className="image">
-                  <img
-                    src={arrowsidebar}
-                    alt="logo"
-                    className="w-[13px] h-[13px] mt-3"
-                  />
-                </div>
-              </div>
-              <div class="flex justify-between items-center mb-4 pb-0.5">
-                <div className=" flex justify-center items-center">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    class="w-4 h-4 text-blue-600 bg-black border-gray-700 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    for="default-checkbox"
-                    class="ms-2 text-[15px] font-medium text- white"
-                  >
-                    sqlalchemy.orm
-                  </label>
-                </div>
-                <div className="image">
-                  <img
-                    src={arrowsidebar}
-                    alt="logo"
-                    className="w-[13px] h-[13px] mt-3"
-                  />
-                </div>
-              </div>
-              <div class="flex justify-between items-center mb-4 pb-0.5">
-                <div className=" flex justify-center items-center">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    class="w-4 h-4 text-blue-600 bg-black border-gray-700 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    for="default-checkbox"
-                    class="ms-2 text-[15px] font-medium text- white"
-                  >
-                    cart_crud
-                  </label>
-                </div>
-                <div className="image">
-                  <img
-                    src={arrowsidebar}
-                    alt="logo"
-                    className="w-[13px] h-[13px] mt-3"
-                  />
-                </div>
-              </div>
-              <div class="flex justify-between items-center mb-4 pb-0.5">
-                <div className=" flex justify-center items-center">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    class="w-4 h-4 text-blue-600 bg-black border-gray-700 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    for="default-checkbox"
-                    class="ms-2 text-[15px] font-medium text- white"
-                  >
-                    cartModel
-                  </label>
-                </div>
-                <div className="image">
-                  <img
-                    src={arrowsidebar}
-                    alt="logo"
-                    className="w-[13px] h-[13px] mt-3"
-                  />
-                </div>
+                    <div className="flex justify-center items-center">
+                      <input
+                        id={item}
+                        type="checkbox"
+                        value=""
+                        className="custom-radio rounded"
+                      />
+                      <label
+                        htmlFor={item}
+                        className="ms-2 text-[15px] font-medium text-white"
+                      >
+                        {item}
+                      </label>
+                    </div>
+                    <div className="image">
+                      <img
+                        src={arrowsidebar}
+                        alt="logo"
+                        className="w-[13px] h-[13px] mt-3"
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Add more checkboxes as needed */}
@@ -163,35 +79,38 @@ const Configuration = () => {
               Select if you want to mock databases
             </span>
             <div className="mt-2.5 pr-1">
-              <div class="flex justify-between items-center mb-4 pb-0.5">
-                <div className=" flex justify-center items-center">
+              <div className="flex justify-between items-center mb-4 pb-0.5">
+                <div className="flex justify-center items-center">
                   <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    class="w-4 h-4 text-blue-600 bg-black border-gray-700 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    id="mock-databases"
+                    name="mock-database-option"
+                    type="radio"
+                    value="mock-databases"
+                    className=" 
+                     custom-radio rounded"
                   />
                   <label
-                    for="default-checkbox"
-                    class="ms-2 text-[15px] font-medium text- white"
+                    htmlFor="mock-databases"
+                    className="ms-2 text-[15px] font-medium text-white"
                   >
                     I want to mock databases
                   </label>
                 </div>
               </div>
-              <div class="flex justify-between items-center mb-4 pb-0.5">
-                <div className=" flex justify-center items-center">
+              <div className="flex justify-between items-center mb-4 pb-0.5">
+                <div className="flex justify-center items-center">
                   <input
-                    id="checked"
-                    type="checkbox"
-                    value="checked"
-                    class="w-4 h-4 text-blue-600 bg-black border-gray-700 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    id="dont-mock-databases"
+                    name="mock-database-option"
+                    type="radio"
+                    value="dont-mock-databases"
+                    className="custom-radio rounded"
                   />
                   <label
-                    for="default-checkbox"
-                    class="ms-2 text-[15px] font-medium text- white"
+                    htmlFor="dont-mock-databases"
+                    className="ms-2 text-[15px] font-medium text-white"
                   >
-                    I don’t want to mock database
+                    I don’t want to mock databases
                   </label>
                 </div>
               </div>

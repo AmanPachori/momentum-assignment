@@ -1,5 +1,9 @@
 import React, { useState, useCallback, useMemo } from "react";
-import ReactFlow, { Background, MarkerType } from "reactflow";
+import ReactFlow, {
+  Background,
+  BackgroundVariant,
+  MarkerType,
+} from "reactflow";
 import "reactflow/dist/style.css";
 import "tailwindcss/tailwind.css";
 import { BiRightArrow } from "react-icons/bi";
@@ -38,10 +42,12 @@ const generateGraphElements = (
     elements.edges.push({
       id: `edge-${parentId}-${nodeId}`,
       source: parentId,
-      type: "textUpdater",
+      type: "step",
       target: nodeId,
       markerEnd: {
         type: MarkerType.ArrowClosed,
+        width: 20,
+        height: 20,
       },
       label: "",
       sourcePosition: "right",
@@ -81,14 +87,19 @@ const defaultEdges = graphElements.edges;
 const Main = () => {
   const nodeTypes = useMemo(() => ({ textUpdater: Card }), []);
   return (
-    <div className="w-full h-[94.7vh] bg-gray-800">
+    <div className="w-full h-[94.7vh] bg-[#181E25]">
       <div className="flex-1 w-full h-[94%]">
         <ReactFlow
           defaultNodes={defaultNodes}
           defaultEdges={defaultEdges}
           nodeTypes={nodeTypes}
         >
-          <Background />
+          <Background
+            color="#808080"
+            gap={100}
+            lineWidth="0.5"
+            variant={BackgroundVariant.Lines}
+          />
         </ReactFlow>
         <button className=" absolute left-[95px] bg-[#F27400] text-white font-medium text-sm px-1.5 py-2.5 rounded z-10 bottom-[75px] flex items-center justify-between">
           <IoMdAdd /> Add methods

@@ -36,8 +36,8 @@ const Card = ({ data }) => {
 
   return (
     <>
-      <Handle type="target" position={Position.Left} />
-      <div className=" card border w-[320px] h-[180px] border-[#FF7A00] rounded  ">
+      <Handle type="target" position={Position.Left} className="!opacity-0" />
+      <div className=" card border w-[320px] h-[180px] border-[#FF7A00] bg-[#181E25] rounded  ">
         <div className="title p-2 flex border-b border-[#ff7a00] justify-between items-center">
           <div className="text-white font-medium">{fileName}</div>
           <div className="">
@@ -68,7 +68,12 @@ const Card = ({ data }) => {
           </div>
         </div>
       </div>
-      <Handle type="source" position={Position.Right} id="a" />
+      <Handle
+        type="source"
+        position={Position.Right}
+        id="a"
+        className="!opacity-0"
+      />
     </>
   );
 };
